@@ -1,0 +1,48 @@
+package Planilla;
+
+import java.util.Scanner;
+
+public class Nomina_Main {
+
+	public static void main(String[] args) {
+    //Este programa calcula el pago de un trabajador
+		
+		
+		Scanner tec = new Scanner(System.in);
+
+		
+		//decxlarando variables
+		double bono = 0.0;
+		double sueldo=0.0;
+		String categoria;
+		
+		
+		System.out.println("ingrese sueldo del trabajador");
+		sueldo=tec.nextDouble();
+		
+		System.out.println("ingrese la categoria ( A ,B ,C , D)");categoria=tec.next().toUpperCase();
+		
+		
+		switch(categoria){
+			
+		case "A":
+			
+			bono= sueldo* 0.5;
+			break;
+		
+        case "B":
+			
+			bono= sueldo* 0.3;
+			break;
+			
+        case "C":
+	          bono= sueldo* 0.2;
+	          break;
+			
+		}
+		System.out.println("EN BONO ES:"+bono);
+		System.out.println("Total a pagar:"+(sueldo + bono));
+		
+	}
+
+}
