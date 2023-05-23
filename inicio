@@ -7,41 +7,78 @@ public class Nomina_Main {
 	public static void main(String[] args) {
     //Este programa calcula el pago de un trabajador
 		
-		
+		//intanciando el objeto scanner
 		Scanner tec = new Scanner(System.in);
 
 		
-		//decxlarando variables
+		//Declarando variables
 		double bono = 0.0;
-		double sueldo=0.0;
-		String categoria;
+		double sueldo=0.0, dec =0.0;
+		String categoria, cargo = null, name, ncedula;
+		int opc;
+		
+		do {
 		
 		
-		System.out.println("ingrese sueldo del trabajador");
+		System.out.println("Nombre y apellido");
+		name=tec.nextLine();
+		
+		System.out.println("Numero de cedula");
+		ncedula=tec.nextLine();
+		
+		System.out.println("Ingrese salario basico del trabajador");
 		sueldo=tec.nextDouble();
 		
-		System.out.println("ingrese la categoria ( A ,B ,C , D)");categoria=tec.next().toUpperCase();
+		System.out.println("las deducciones");
+		dec=tec.nextDouble();
 		
+		
+		System.out.println("La categoria A = Gerente");
+		System.out.println("La categoria B = Agente de ventas");
+		System.out.println("La categoria C = operario ");
+		categoria=tec.next().toUpperCase();
 		
 		switch(categoria){
 			
 		case "A":
 			
 			bono= sueldo* 0.5;
+			cargo = "Gerente";
 			break;
 		
         case "B":
 			
 			bono= sueldo* 0.3;
+			cargo = "Agente de ventas";
 			break;
 			
+       
         case "C":
 	          bono= sueldo* 0.2;
-	          break;
-			
+	          cargo = "operario";
+	          break;  
+		
+        case "D":
+	          bono= sueldo* 0.1;
+	          cargo = "practicante";
+	          break;  
+		
 		}
-		System.out.println("EN BONO ES:"+bono);
-		System.out.println("Total a pagar:"+(sueldo + bono));
+		System.out.println("Deseas agregar otro trabajador si= 1 y no= 2 "); opc = tec.nextInt();
+		} while( opc == 1);
+		
+		
+		System.out.println("Nombre:" +name);
+		System.out.println("Puesto :" +cargo);
+		System.out.println("Numero de cedula:" +ncedula);
+		
+		
+		System.out.println("El bono es::" +bono);
+		System.out.println("total deduccion:" +dec);
+		System.out.println("Total a pagar:" +(sueldo + bono - dec));
+		
+		
+		
 		
 	}
 
